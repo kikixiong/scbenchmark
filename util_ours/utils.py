@@ -4,8 +4,39 @@ import pickle
 import torch
 import torch.nn.functional as F
 from typing import Dict, Iterable, List, Optional, Tuple, Union
-import torchtext.vocab as torch_vocab
-from torchtext.vocab import Vocab
+try:
+    import torchtext.vocab as torch_vocab
+    from torchtext.vocab import Vocab
+except (ImportError, OSError):
+    from collections import OrderedDict as _OD
+    class Vocab:
+        def __init__(self, ordered_dict=None):
+            self.vocab = _OD(ordered_dict) if ordered_dict else _OD()
+            self._default_index = -1
+        def __getitem__(self, token):
+            return self.vocab.get(token, self._default_index)
+        def __contains__(self, token):
+            return token in self.vocab
+        def __len__(self):
+            return len(self.vocab)
+        def insert_token(self, token, index):
+            self.vocab[token] = index
+        def set_default_index(self, index):
+            self._default_index = index
+        def get_stoi(self):
+            return dict(self.vocab)
+        def get_itos(self):
+            return {v: k for k, v in self.vocab.items()}
+        def items(self):
+            return self.vocab.items()
+    class _TV:
+        @staticmethod
+        def vocab(ordered_dict, min_freq=1):
+            v = Vocab()
+            for i,(t,f) in enumerate(ordered_dict.items()):
+                if f >= min_freq: v.insert_token(t, i)
+            return v
+    torch_vocab = _TV()
 from pathlib import Path
 from collections import Counter, OrderedDict
 from typing import Any, Dict, List, Mapping, Optional, Tuple, Union

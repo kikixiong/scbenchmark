@@ -1,0 +1,11 @@
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+data/
+logs/
+save_pretrain/
+temp_files/
+*.bak*
+*.old
+*.log
+*.wrong_backup
