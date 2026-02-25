@@ -1,0 +1,32 @@
+{
+  "Myeloid": {
+    "total_genes": 2809,
+    "matched": 1880,
+    "match_rate": 66.93,
+    "file": "/root/autodl-tmp/genept_official_experiment/genept_aligned_Myeloid_FINAL.pt"
+  },
+  "pancread": {
+    "total_genes": 2999,
+    "matched": 2295,
+    "match_rate": 76.53,
+    "file": "/root/autodl-tmp/genept_official_experiment/genept_aligned_pancread_FINAL.pt"
+  },
+  "lupus": {
+    "total_genes": 1741,
+    "matched": 1060,
+    "match_rate": 60.88,
+    "file": "/root/autodl-tmp/genept_official_experiment/genept_aligned_lupus_FINAL.pt"
+  },
+  "scfoundation": {
+    "total_genes": 12328,
+    "matched": 7967,
+    "match_rate": 64.63,
+    "file": "/root/autodl-tmp/genept_official_experiment/genept_aligned_scfoundation_FINAL.pt"
+  },
+  "Multiple_Sclerosis": {
+    "total_genes": 2808,
+    "matched": 1785,
+    "match_rate": 63.57,
+    "file": "/root/autodl-tmp/genept_official_experiment/genept_aligned_Multiple_Sclerosis_FINAL.pt"
+  }
+}
