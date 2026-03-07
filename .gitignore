@@ -9,3 +9,11 @@ temp_files/
 *.old
 *.log
 *.wrong_backup
+autodl-tmp
+unlasting
+*.out
+*.csv
+experiments/gene-fusion-scbench/*.json
+*.pt
+progress.txt
+
